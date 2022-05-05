@@ -38,6 +38,14 @@
         <view class="location" bindtap="getLocation">{{location}}</view>
     </view>
 
+    <view class="reportView">
+        <text class="reportViewText">健康码:</text>
+    </view>
+
+    <view class="reportView">
+        <text class="reportViewText">行程卡:</text>
+    </view>
+
     <view style="display:flex">
         <button type="primary" form-type="submit">提交</button>
         <button type="warn" form-type="reset">重置</button>

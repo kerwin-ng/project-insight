@@ -2,10 +2,17 @@
 
 .reportView {
     display: flex;
+    padding: 30rpx;
+}
+
+.reportViewLocation {
+    
+    padding: 30rpx;
 }
 
 .reportViewText {
     font-size: 40rpx;
+    padding-right: 20rpx;
 }
 
 .reportInput {
@@ -13,4 +20,19 @@
     color: black;
     height: 70rpx;
     width: 500rpx;
+}
+
+.reportInputPhone {
+    border: 1rpx solid #ccc;
+    color: black;
+    height: 70rpx;
+    width: 430rpx;
+}
+
+.location {
+    text-align: center;
+    color: darkgray;
+    border: 1rpx solid #ccc;
+    height: 50rpx;
+    width: 450rpx;
 }

@@ -5,7 +5,26 @@ Page({
      * 页面的初始数据
      */
     data: {
+        location:'点击按钮进行定位',
+    },
 
+    getLocation:function(){
+        const that = this;
+        wx.getLocation({
+          altitude: 'altitude',
+          type: 'wgs84',
+          success (res) {
+              console.log(res)
+              location = res.latitude
+              that.setData({
+                  location: location
+              })
+          },
+          fail (res) {
+              console.log("fail")
+              console.log(res)
+          }
+        })
     },
 
     /**

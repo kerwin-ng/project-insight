@@ -14,23 +14,33 @@
 
     <view class="reportView">
         <text class="reportViewText">手机号：</text>
-        <input type="number" maxlength="11" class="reportInput"/>
+        <input type="number" maxlength="11" name="phone" class="reportInputPhone"/>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">体温：</text>
-        <radio-group name="health">
-            <radio value="temperature37">大于37度</radio>
-            <radio value="safeTemperature">小于37度</radio>
+        <radio-group name="temperature">
+            <radio value="temperatureTrue">大于37度</radio>
+            <radio value="temperatureFalse">小于37度</radio>
         </radio-group>
     </view>
 
-    <view>
+    <view class="reportViewLocation">
         <text class="reportViewText">14天内是否到达过中高风险所在市：</text>
         <radio-group name="riskLocation">
             <radio value="riskLocationTrue">是</radio>
             <radio value="riskLocationFalse">否</radio>
         </radio-group>
+    </view>
+
+    <view class="reportView">
+        <text class="reportViewText">所处位置：</text>
+        <view class="location" bindtap="getLocation">{{location}}</view>
+    </view>
+
+    <view style="display:flex">
+        <button type="primary" form-type="submit">提交</button>
+        <button type="warn" form-type="reset">重置</button>
     </view>
 
 </form>

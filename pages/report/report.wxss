@@ -1,0 +1,16 @@
+/* pages/report/report.wxss */
+
+.reportView {
+    display: flex;
+}
+
+.reportViewText {
+    font-size: 40rpx;
+}
+
+.reportInput {
+    border: 1rpx solid #ccc;
+    color: black;
+    height: 70rpx;
+    width: 500rpx;
+}

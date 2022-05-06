@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        location:'点击按钮进行定位',
+        location: '点击按钮进行定位',
+        date: '2022-05-06'
     },
 
     getLocation:function(){
@@ -13,7 +14,7 @@ Page({
         wx.getLocation({
           altitude: 'altitude',
           type: 'wgs84',
-          success (res) {
+          success: (res) => {
               console.log(res)
               location = res.latitude
               that.setData({

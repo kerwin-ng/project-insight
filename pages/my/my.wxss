@@ -1,1 +1,13 @@
 /* pages/my/my.wxss */
+
+.myInfo {
+    background-color: bisque;
+}
+
+.login {
+
+}
+
+.userImg {
+    
+}

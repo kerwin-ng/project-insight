@@ -9,7 +9,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle":"black"
   },
 
@@ -26,12 +26,6 @@
             "text": "报告",
             "iconPath": "/resource/img/icon/report.png",
             "selectedIconPath": "/resource/img/icon/report-s.png"
-          },
-          {
-            "pagePath": "pages/my/my",
-            "text": "信息",
-            "iconPath": "/resource/img/icon/my.png",
-            "selectedIconPath": "/resource/img/icon/my-s.png"
           }
     ]
   },

@@ -5,7 +5,14 @@ Page({
      * 页面的初始数据
      */
     data: {
+        mainText: '【通知】天河校区各部门、二级学院：刚接到教育局通知，定于今天中午13:00在学校礼堂三楼进行天河校区师生全员核酸检测，核酸检测方案详见附件，请及时通知给学生及转发校内相关人员。'
+    },
 
+    goToYueshengshi:function(e) {
+        wx.navigateToMiniProgram({
+          appId: 'wx82d43fee89cdc7df',
+          path: 'page'
+        })
     },
 
     /**

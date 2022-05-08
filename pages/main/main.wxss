@@ -1,1 +1,15 @@
 /* pages/main/main.wxss */
+
+.mainView {
+    margin-top: 20rpx;
+    margin-left: 50rpx;
+}
+
+.mainTextView {
+    font-size: 38rpx;
+    margin-top: 20rpx;
+    border: 1rpx solid #ccc;
+    width: 90%;
+    padding: 10rpx;
+    color: dimgray;
+}

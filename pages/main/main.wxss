@@ -9,6 +9,7 @@
     font-size: 38rpx;
     margin-top: 20rpx;
     border: 1rpx solid #ccc;
+    height: 400rpx;
     width: 90%;
     padding: 10rpx;
     color: dimgray;

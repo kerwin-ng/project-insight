@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userImgUrl: '',
+        userImgUrl: '/resource/img/icon/main.png',
+        userName: '未登录',
     },
 
     /**

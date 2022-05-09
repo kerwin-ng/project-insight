@@ -3,4 +3,8 @@
     <view bindtap="userLogin" class="login">
         <image class="userImg" src="{{userImgUrl}}"></image>
     </view> 
+
+    <view>
+        <view>{{userName}}</view>
+    </view>
 </view>

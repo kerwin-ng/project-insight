@@ -2,11 +2,12 @@
 <view class="mainView">
     <view> 
         <view style="font-size: 50rpx;">最新信息：</view>
-        <view class="mainTextView">{{mainText}}</view>
+        <!-- <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scrollview> -->
+        <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scroll-view>
     </view>
 
-    <view style="margin-top: 40rpx;"> 
+    <!-- <view style="margin-top: 40rpx;"> 
         <view style="font-size: 50rpx;">广东省中高风险地区：</view>
         <button bindtap="goToYueshengshi">跳转</button>
-    </view>
+    </view> -->
 </view>

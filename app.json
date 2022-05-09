@@ -26,6 +26,12 @@
             "text": "报告",
             "iconPath": "/resource/img/icon/report.png",
             "selectedIconPath": "/resource/img/icon/report-s.png"
+          },
+          {
+              "pagePath": "pages/my/my",
+              "text": "个人",
+              "iconPath": "/resource/img/icon/my.png",
+              "selectedIconPath": "/resource/img/icon/my-s.png"
           }
     ]
   },

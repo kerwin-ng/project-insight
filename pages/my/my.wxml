@@ -15,13 +15,23 @@
 <!-- <view style="margin: 20rpx; font-size: 60rpx;">快捷入口：</view> -->
 <view class="myView">
 
-    <view>
-        <image src="/resource/img/icon/jiankangma.png" class="icon"></image>
+    <view class="iconView">
+        <image src="/resource/img/icon/健康码.png" class="icon"></image>
         <view>粤康码</view>
     </view>
 
-    <view>
-        <image src="/resource/img/icon/xingchengka.png" class="icon"></image>
+    <view class="iconView">
+        <image src="/resource/img/icon/行程.png" class="icon"></image>
         <view>行程卡</view>
+    </view>
+
+    <view class="iconView">
+        <image src="/resource/img/icon/结果.png" class="icon"></image>
+        <view>历史报告</view>
+    </view>
+
+    <view class="iconView">
+        <image src="/resource/img/icon/疫情.png" class="icon"></image>
+        <view>疫情信息</view>
     </view>
 </view>

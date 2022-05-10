@@ -1,11 +1,16 @@
 <!--pages/main/main.wxml-->
 <view class="mainView">
-    <view> 
-        <view style="font-size: 50rpx;">最新信息：</view>
-        <!-- <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scrollview> -->
-        <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scroll-view>
+    <view style="display: flex;">
+        <image src="/resource/img/icon/date.png" style="height: 60rpx; width: 60rpx; margin: 10rpx 10rpx 0rpx;"></image>
+        <view style="font-size: 60rpx; margin-bottom: 30rpx;">当前日期：{{date}}</view>
     </view>
 
+    <view style="display: flex;"> 
+        <image src="/resource/img/icon/news.png" style="height: 50rpx; width: 50rpx;margin: 7rpx 10rpx 0rpx;"></image>
+        <view style="font-size: 45rpx;">最新信息：</view>
+        <!-- <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scrollview> -->    
+    </view>
+    <scroll-view scroll-y="true" class="mainTextView">{{mainText}}</scroll-view>
     <!-- <view style="margin-top: 40rpx;"> 
         <view style="font-size: 50rpx;">广东省中高风险地区：</view>
         <button bindtap="goToYueshengshi">跳转</button>

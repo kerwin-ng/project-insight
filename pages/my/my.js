@@ -5,8 +5,26 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userImgUrl: '/resource/img/icon/main.png',
-        userName: '未登录',
+        userImgUrl: '',
+        userName: '',
+        userLogin: false,
+
+    },
+
+    getUserProfile: function(e) {
+        wx.getUserProfile({
+          desc: '用于完善个人界面信息',
+
+          success: (res) => {
+              console.log(res)
+              console.log("Get user profile success.")
+              this.setData({
+                  userLogin: true,
+                  userImgUrl: res.userInfo.avatarUrl,
+                  userName: res.userInfo.nickName,
+              })
+          }
+        })
     },
 
     /**

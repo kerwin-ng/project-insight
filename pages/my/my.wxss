@@ -1,13 +1,44 @@
 /* pages/my/my.wxss */
 
 .myInfo {
-    background-color: bisque;
+    padding: 10rpx;
+    margin: 20rpx;
+    text-align: center;
+    /* background-color: bisque; */
+    height: 280rpx;
 }
 
 .login {
-
+    line-height: 70rpx;
 }
 
 .userImg {
-    
+    border-radius: 100rpx;
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.userName {
+    font-size: 40rpx;
+    color: #707070;
+}
+
+.line {
+	width: 100%;
+	height: 5rpx;
+    background-color: #bfbfbf;
+}
+
+.icon {
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.myView {
+    display: flex;
+    margin: 80rpx;
+}
+
+.iconView {
+    display: flex;
 }

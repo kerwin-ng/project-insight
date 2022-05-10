@@ -1,0 +1,7 @@
+<!--pages/login/login.wxml-->
+
+<view class="loginView">
+    <image src="/resource/img/icon/登录.png" class="loginImg"></image>
+    <view class="loginText">通过手机号登录</view>
+</view>
+<button bindtap="loginSuccess">登录</button>

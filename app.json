@@ -1,41 +1,40 @@
 {
-  "pages":[
-    "pages/main/main",
-    "pages/report/report",
-    "pages/my/my",
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle":"black"
-  },
-
-  "tabBar": {
-      "list": [
-        {
-          "pagePath": "pages/main/main",
-          "text": "信息",
-          "iconPath": "/resource/img/icon/main.png",
-          "selectedIconPath": "/resource/img/icon/main-s.png"
-        },
-        {
-            "pagePath": "pages/report/report",
-            "text": "报告",
-            "iconPath": "/resource/img/icon/report.png",
-            "selectedIconPath": "/resource/img/icon/report-s.png"
-          },
-          {
-              "pagePath": "pages/my/my",
-              "text": "个人",
-              "iconPath": "/resource/img/icon/my.png",
-              "selectedIconPath": "/resource/img/icon/my-s.png"
-          }
-    ]
-  },
-  
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/login/login",
+        "pages/main/main",
+        "pages/report/report",
+        "pages/my/my",
+        "pages/index/index",
+        "pages/logs/logs"      
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/main/main",
+                "text": "信息",
+                "iconPath": "/resource/img/icon/main.png",
+                "selectedIconPath": "/resource/img/icon/main-s.png"
+            },
+            {
+                "pagePath": "pages/report/report",
+                "text": "报告",
+                "iconPath": "/resource/img/icon/report.png",
+                "selectedIconPath": "/resource/img/icon/report-s.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "个人",
+                "iconPath": "/resource/img/icon/my.png",
+                "selectedIconPath": "/resource/img/icon/my-s.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

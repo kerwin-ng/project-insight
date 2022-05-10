@@ -1,0 +1,17 @@
+/* pages/login/login.wxss */
+
+.loginView {
+    /* border:2px solid gray; */
+    text-align: center;
+    margin: 400rpx 20rpx 30rpx;
+}
+
+.loginImg {
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.loginText {
+    margin-top: 20rpx;
+    font-size: 55rpx;
+}

@@ -5,7 +5,8 @@
         "pages/report/report",
         "pages/my/my",
         "pages/index/index",
-        "pages/logs/logs"      
+        "pages/logs/logs",
+        "pages/historyReport/historyReport"
     ],
     "window": {
         "backgroundTextStyle": "light",

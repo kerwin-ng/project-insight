@@ -11,6 +11,43 @@ Page({
 
     },
 
+    goToYuekangCode: function(e) {
+        wx.navigateToMiniProgram({
+          appId: 'wx82d43fee89cdc7df',
+
+          success(res) {
+              console.log("Go to YuekangCode success.")
+              console.log(res)
+          },
+
+          fail(res) {
+              console.log(res)
+          }
+        })
+        console.log(e)
+    },
+
+    goToItineraryCard: function(e) {
+        wx.navigateToMiniProgram({
+          appId: 'wx8f446acf8c4a85f5',
+
+          success(res) {
+            console.log("Go to Itinerary Card success.")
+            console.log(res)
+            },
+
+            fail(res) {
+            console.log(res)
+            }
+        })
+    },
+
+    goToHistoryReport: function(e) {
+        wx.navigateTo({
+           url: '/pages/historyReport/historyReport',
+        })
+    },
+
     getUserProfile: function(e) {
         wx.getUserProfile({
           desc: '用于完善个人界面信息',

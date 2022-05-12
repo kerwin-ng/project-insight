@@ -42,6 +42,12 @@ Page({
         })
     },
 
+    goToAbout: function(e){
+        wx.navigateTo({
+          url: '/pages/about/about',
+        })
+    },
+
     goToHistoryReport: function(e) {
         wx.navigateTo({
            url: '/pages/historyReport/historyReport',

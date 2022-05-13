@@ -7,7 +7,9 @@
         "pages/index/index",
         "pages/logs/logs",
         "pages/historyReport/historyReport",
-        "pages/about/about"
+        "pages/about/about",
+        "pages/adminMain/adminMain",
+        "pages/adminReportList/adminReportList"
     ],
     "window": {
         "backgroundTextStyle": "light",

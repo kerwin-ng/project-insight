@@ -36,4 +36,8 @@
     </view> -->
 </view>
 
-<view class="aboutView" bindtap="goToAbout">关于 | 帮助</view>
+<view class="myView">
+    
+</view>
+
+<!-- <view class="aboutView" bindtap="goToAbout">关于 | 帮助</view> -->

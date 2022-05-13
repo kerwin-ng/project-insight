@@ -8,6 +8,12 @@ Page({
 
     },
 
+    loginAdmin: function(e) {
+        wx.navigateTo({
+          url: '/pages/adminMain/adminMain',
+        })
+    },
+
     loginSuccess: function(e) {
         wx.switchTab({
           url: '/pages/main/main',

@@ -8,6 +8,12 @@ Page({
 
     },
 
+    goToLocationTest: function() {
+        wx.navigateTo({
+          url: '/pages/test/locationTest/locationTest',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

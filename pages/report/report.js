@@ -1,25 +1,63 @@
 // pages/report/report.js
+
+// 引入SDK核心类
+var QQMapWX = require('./qqmap-wx-jssdk.js');
+ 
+// 实例化API核心类
+var qqmapsdk = new QQMapWX({
+    key: 'XGNBZ-GRPWS-NW7O6-6O6LX-OWVZT-X2BKG' // 必填
+});
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        location: '点击按钮进行定位',
-        date: '2022-05-06'
+        locationLatitude: '',
+        locationLongitude: '',
+        date: '2022-05-06',
+        address: '',
+    },
+
+    getAddress: function(e) {
+        var _this = this;
+        // var latitude = this.getLocation.latitude;
+        // var longitude = this.getLocation.longitude;
+        qqmapsdk.reverseGeocoder({
+            location: {
+              // 你的经纬度
+                latitude: this.getLocation.latitude,
+                longitude: this.getLocation.longitude,
+                // latitude: 23.12463,
+                // longitude: 113.36199,
+            },
+
+        
+            success: function (res) {
+              console.log(res);
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          });
+      
     },
 
     getLocation:function(){
         const that = this;
+        var latitude;
+        var longitude;
         wx.getLocation({
           altitude: 'altitude',
-          type: 'wgs84',
+          type: 'gcj02',
           success: (res) => {
-              console.log(res)
-              location = res.latitude
+              console.log(res) 
               that.setData({
-                  location: location
+                  latitude: res.latitude,
+                  longitude: res.longitude
               })
+              
           },
           fail (res) {
               console.log("fail")

@@ -21,23 +21,28 @@
     <view class="reportView">
         <text class="reportViewText">体温：</text>
         <radio-group name="temperature">
-            <radio value="temperatureTrue">大于37度</radio>
-            <radio value="temperatureFalse">小于37度</radio>
+            <radio value="temperatureTrue" style="margin-left: 10rpx">大于37度</radio>
+            <radio value="temperatureFalse" style="margin-left: 20rpx">小于37度</radio>
         </radio-group>
     </view>
 
     <view class="reportViewLocation">
         <text class="reportViewText">14天内是否到达过中高风险所在市：</text>
-        <radio-group name="riskLocation">
+        <radio-group name="riskLocation" style="margin-top: 20rpx;">
             <radio value="riskLocationTrue">是</radio>
-            <radio value="riskLocationFalse">否</radio>
+            <radio value="riskLocationFalse"  style="margin-left: 20rpx;">否</radio>
         </radio-group>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">所处位置：</text>
-        <view class="location" bindtap="getLocation">{{location}}</view>
+        <view class="location" bindtap="getLocation">{{address}}</view>
     </view>
+    <!-- 经纬度 -->
+    <view>纬度：{{locationLatitude}}</view>
+    <view>经度：{{locationLongitude}}</view>
+
+    <button type="primary" bindtap="getAddress">TEST</button>
 
     <view class="reportView">
         <text class="reportViewText">健康码:</text>
@@ -52,4 +57,6 @@
         <button type="warn" form-type="reset">重置</button>
     </view>
 
+    
+    
 </form>

@@ -6,4 +6,6 @@
         <image src="/resource/img/icon/date.png" style="height: 60rpx; width: 60rpx; margin: 10rpx 10rpx 0rpx;"></image>
         <view style="font-size: 60rpx; margin-bottom: 30rpx;">当前日期：{{date}}</view>
     </view>
+
+    <button type="primary" bindtap="goToLocationTest">位置测试页面</button>
 </view>

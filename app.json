@@ -9,7 +9,8 @@
         "pages/historyReport/historyReport",
         "pages/about/about",
         "pages/adminMain/adminMain",
-        "pages/adminReportList/adminReportList"
+        "pages/adminReportList/adminReportList",
+        "pages/test/locationTest/locationTest"
     ],
     "window": {
         "backgroundTextStyle": "light",

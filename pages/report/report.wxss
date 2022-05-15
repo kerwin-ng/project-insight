@@ -29,6 +29,13 @@
     width: 430rpx;
 }
 
+.reportInputAddress {
+    border: 1rpx solid #ccc;
+    color: black;
+    height: 70rpx;
+    width: 390rpx;
+}
+
 .location {
     text-align: center;
     color: darkgray;

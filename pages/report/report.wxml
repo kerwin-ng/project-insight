@@ -34,15 +34,13 @@
         </radio-group>
     </view>
 
-    <view class="reportView">
+    <view class="reportView" bindtap="getAddress">
         <text class="reportViewText">所处位置：</text>
-        <view class="location" bindtap="getLocation">{{address}}</view>
+        <!-- <view class="location" bindtap="getAddress">{{reportAddress}}</view> -->
+        <input type="text" class="reportInputAddress" name="address" value="{{reportAddress}}" disabled="true"/>
     </view>
-    <!-- 经纬度 -->
-    <view>纬度：{{locationLatitude}}</view>
-    <view>经度：{{locationLongitude}}</view>
 
-    <button type="primary" bindtap="getAddress">TEST</button>
+    <!-- <button type="primary" bindtap="getAddress">TEST</button> -->
 
     <view class="reportView">
         <text class="reportViewText">健康码:</text>

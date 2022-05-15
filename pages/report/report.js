@@ -14,56 +14,62 @@ Page({
      * 页面的初始数据
      */
     data: {
-        locationLatitude: '',
-        locationLongitude: '',
         date: '2022-05-06',
-        address: '',
+        reportAddress: '',
     },
 
     getAddress: function(e) {
-        var _this = this;
-        // var latitude = this.getLocation.latitude;
-        // var longitude = this.getLocation.longitude;
-        qqmapsdk.reverseGeocoder({
-            location: {
-              // 你的经纬度
-                latitude: this.getLocation.latitude,
-                longitude: this.getLocation.longitude,
-                // latitude: 23.12463,
-                // longitude: 113.36199,
-            },
+        var that = this;
 
-        
-            success: function (res) {
-              console.log(res);
-            },
-            fail: function (res) {
-              console.log(res);
-            }
-          });
-      
-    },
-
-    getLocation:function(){
-        const that = this;
-        var latitude;
-        var longitude;
         wx.getLocation({
+
           altitude: 'altitude',
           type: 'gcj02',
+
           success: (res) => {
-              console.log(res) 
-              that.setData({
-                  latitude: res.latitude,
-                  longitude: res.longitude
-              })
-              
+            console.log(res)
+            qqmapsdk.reverseGeocoder({
+                location: {
+                    latitude: res.latitude,
+                    longitude: res.longitude,
+                },
+                success: (e) => {
+                    console.log(e)
+                    that.setData({
+                        reportAddress: e.result.address
+                    })
+                },
+                fail: (e) => {
+                    console.log(e)
+                }
+            })
+            // this.setData({
+            //     locationLatitude: res.latitude,
+            //     locationLongitude: res.longitude
+            // })
+            // console.log(this.data.locationLatitude)
+            // console.log(this.data.locationLongitude)
           },
-          fail (res) {
-              console.log("fail")
-              console.log(res)
+
+          fail: (res) => {
+                console.log('get location fail')
+                console.log(res)
           }
         })
+
+        // qqmapsdk.reverseGeocoder({
+        //     location: {
+        //         latitude: this.data.locationLatitude,
+        //         longitude: this.data.locationLongitude,
+        //     },
+
+        //     success: function(res) {
+        //         console.log(res);
+        //     },
+        //     fail: function(res) {
+        //         console.log(res);
+        //     }
+        // })
     },
 
     /**
@@ -77,7 +83,8 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        // 获取经纬度转换成地址传递到 address
+        this.getAddress();
     },
 
     /**

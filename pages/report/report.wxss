@@ -46,3 +46,10 @@
     height: 50rpx;
     width: 450rpx;
 }
+
+.uploadView {
+    border: 1rpx solid #ccc;
+    height: 50rpx;
+    width: 250rpx;
+    text-align: center;
+}

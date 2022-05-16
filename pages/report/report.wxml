@@ -44,12 +44,16 @@
 
     <view class="reportView">
         <text class="reportViewText">健康码:</text>
+        <view class="uploadView">点击进行上传</view>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">行程卡:</text>
+        <view class="uploadView" bindtap="uploadImage">点击进行上传</view>
+        
     </view>
-
+    <image src="/resource/img/icon/jiankangma.png"></image>
+    
     <view style="display:flex">
         <button type="primary" form-type="submit">提交</button>
         <button type="warn" form-type="reset">重置</button>

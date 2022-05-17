@@ -52,7 +52,7 @@
         <view class="uploadView" bindtap="uploadImage">点击进行上传</view>
         
     </view>
-    <image src="/resource/img/icon/jiankangma.png"></image>
+    <image src="/resource/img/icon/jiankangma.png" class="uploadImage"></image>
     
     <view style="display:flex">
         <button type="primary" form-type="submit">提交</button>

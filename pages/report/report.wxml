@@ -46,15 +46,18 @@
     <view class="reportView">
         <text class="reportViewText">健康码：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadImage"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}"></image>
+            <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
         </view>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">行程卡：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadImage"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}"></image>
+            <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
         </view>
+        
     </view>
 
     

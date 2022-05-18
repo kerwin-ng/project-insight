@@ -16,6 +16,8 @@ Page({
     data: {
         date: '2022-05-06',
         reportAddress: '',
+        uploadImage: false,
+        uploadImageSrc: '/resource/img/screenshots/testDemo.png',
     },
 
     getAddress: function(e) {

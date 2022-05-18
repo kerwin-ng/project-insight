@@ -21,7 +21,23 @@ Page({
     },
 
     uploadImage: function() {
-        
+        var that = this;
+        wx.chooseImage({
+          count: 1,
+          sourceType: 'album',
+
+          success: (res) =>{
+            console.log(res)
+            that.setData({
+                uploadImageSrc: res.tempFilePaths,
+                uploadImage: true,
+            })
+          },
+
+          fail: (res) => {
+              console.log(res)
+          }
+        })
     },
 
     uploadImageReset: function() {
@@ -83,6 +99,11 @@ Page({
         //         console.log(res);
         //     }
         // })
+    },
+
+    reportSubmit: function(res) {
+        var that = this;
+        console.log(res);
     },
 
     /**

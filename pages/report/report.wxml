@@ -63,7 +63,7 @@
 
     
     <view style="display: flex; margin-top: 20rpx;">
-        <button type="primary" form-type="submit">提交</button>
+        <button type="primary" form-type="reportSubmit">提交</button>
         <button type="warn" form-type="reset">重置</button>
     </view>
 

@@ -13,6 +13,7 @@
 .reportViewText {
     font-size: 40rpx;
     padding-right: 20rpx;
+    padding-top: 10rpx;
 }
 
 .reportInput {
@@ -34,7 +35,7 @@
 .reportInputAddress {
     padding-left: 10rpx;
     border: 1rpx solid #ccc;
-    color: lightslategrey;
+    color: #778899;
     height: 70rpx;
     width: 390rpx;
 }
@@ -47,14 +48,22 @@
     width: 450rpx;
 }
 
+.locationRefreash {
+    height: 50rpx;
+    width: 50rpx;
+    padding-top: 10rpx;
+    padding-left: 10rpx;
+}
+
 .uploadView {
     border: 1rpx solid #ccc;
-    height: 50rpx;
-    width: 250rpx;
+    height: 220rpx;
+    width: 220rpx;
     text-align: center;
 }
 
 .uploadImage {
-    height: 300rpx;
-    width: 300rpx;
+    padding-top: 20rpx;
+    height: 150rpx;
+    width: 150rpx;
 }

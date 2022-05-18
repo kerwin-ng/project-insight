@@ -34,25 +34,29 @@
         </radio-group>
     </view>
 
-    <view class="reportView" bindtap="getAddress">
+    <view class="reportView">
         <text class="reportViewText">所处位置：</text>
         <!-- <view class="location" bindtap="getAddress">{{reportAddress}}</view> -->
         <input type="text" class="reportInputAddress" name="address" value="{{reportAddress}}" disabled="true"/>
+        <image src="/resource/img/icon/refresh.png" class="locationRefreash" bindtap="getAddress"></image>
     </view>
 
     <!-- <button type="primary" bindtap="getAddress">TEST</button> -->
 
     <view class="reportView">
-        <text class="reportViewText">健康码:</text>
-        <view class="uploadView">点击进行上传</view>
+        <text class="reportViewText">健康码：</text>
+        <view class="uploadView">
+            <image src="/resource/img/icon/upload.png" class="uploadImage"></image>
+        </view>
     </view>
 
     <view class="reportView">
-        <text class="reportViewText">行程卡:</text>
-        <view class="uploadView" bindtap="uploadImage">点击进行上传</view>
-        
+        <text class="reportViewText">行程卡：</text>
+        <view class="uploadView">
+            <image src="/resource/img/icon/upload.png" class="uploadImage"></image>
+        </view>
     </view>
-    <image src="/resource/img/icon/jiankangma.png" class="uploadImage"></image>
+
     
     <view style="display:flex">
         <button type="primary" form-type="submit">提交</button>

@@ -20,6 +20,17 @@ Page({
         uploadImageSrc: '/resource/img/screenshots/testDemo.png',
     },
 
+    uploadImage: function() {
+        
+    },
+
+    uploadImageReset: function() {
+        this.setData({
+            uploadImage: false,
+        })
+        console.log('uploadImage:',this.data.uploadImage)
+    },
+
     getAddress: function(e) {
         var that = this;
 

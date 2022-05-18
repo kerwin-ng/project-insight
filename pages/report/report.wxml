@@ -38,7 +38,7 @@
         <text class="reportViewText">所处位置：</text>
         <!-- <view class="location" bindtap="getAddress">{{reportAddress}}</view> -->
         <input type="text" class="reportInputAddress" name="address" value="{{reportAddress}}" disabled="true"/>
-        <image src="/resource/img/icon/refresh.png" class="locationRefreash" bindtap="getAddress"></image>
+        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="getAddress"></image>
     </view>
 
     <!-- <button type="primary" bindtap="getAddress">TEST</button> -->
@@ -46,22 +46,23 @@
     <view class="reportView">
         <text class="reportViewText">健康码：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}" bindtap="uploadImage"></image>
             <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
         </view>
+        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadImageReset"></image>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">行程卡：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}" bindtap="uploadImage"></image>
             <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
         </view>
-        
+        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadImageReset"></image>
     </view>
 
     
-    <view style="display:flex">
+    <view style="display: flex; margin-top: 20rpx;">
         <button type="primary" form-type="submit">提交</button>
         <button type="warn" form-type="reset">重置</button>
     </view>

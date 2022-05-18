@@ -48,7 +48,7 @@
     width: 450rpx;
 }
 
-.locationRefreash {
+.refreashIcon {
     height: 50rpx;
     width: 50rpx;
     padding-top: 10rpx;

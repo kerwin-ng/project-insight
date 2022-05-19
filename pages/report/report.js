@@ -16,11 +16,13 @@ Page({
     data: {
         date: '2022-05-06',
         reportAddress: '',
-        uploadImage: false,
-        uploadImageSrc: '/resource/img/screenshots/testDemo.png',
+        uploadHealthCode: false,
+        uploadItineraryCode: false,
+        uploadHealthCodeSrc: '',
+        uploadItineraryCodeSrc: '',
     },
 
-    uploadImage: function() {
+    uploadItineraryCode: function() {
         var that = this;
         wx.chooseImage({
           count: 1,
@@ -29,8 +31,8 @@ Page({
           success: (res) =>{
             console.log(res)
             that.setData({
-                uploadImageSrc: res.tempFilePaths,
-                uploadImage: true,
+                uploadItineraryCodeSrc: res.tempFilePaths,
+                uploadItineraryCode: true,
             })
           },
 
@@ -40,11 +42,38 @@ Page({
         })
     },
 
-    uploadImageReset: function() {
-        this.setData({
-            uploadImage: false,
+    uploadHealthCode: function() {
+        var that = this;
+        wx.chooseImage({
+          count: 1,
+          sourceType: 'album',
+
+          success: (res) =>{
+            console.log(res)
+            that.setData({
+                uploadHealthCodeSrc: res.tempFilePaths,
+                uploadHealthCode: true,
+            })
+          },
+
+          fail: (res) => {
+              console.log(res)
+          }
         })
-        console.log('uploadImage:',this.data.uploadImage)
+    },
+
+    uploadItineraryCodeReset: function() {
+        this.setData({
+            uploadItineraryCode: false,
+            uploadItineraryCodeSrc: '',
+        })
+    },
+
+    uploadHealthCodeReset: function() {
+        this.setData({
+            uploadHealthCode: false,
+            uploadHealthCodeSrc: '',
+        })
     },
 
     getAddress: function(e) {

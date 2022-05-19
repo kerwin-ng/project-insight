@@ -46,19 +46,19 @@
     <view class="reportView">
         <text class="reportViewText">健康码：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}" bindtap="uploadImage"></image>
-            <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadHealthCode == false}}" bindtap="uploadHealthCode"></image>
+            <image src="{{uploadHealthCodeSrc}}" class="uploadImage" wx:if="{{uploadHealthCode == true}}"></image>
         </view>
-        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadImageReset"></image>
+        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadHealthCodeReset"></image>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">行程卡：</text>
         <view class="uploadView">
-            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadImage == false}}" bindtap="uploadImage"></image>
-            <image src="{{uploadImageSrc}}" class="uploadImage" wx:if="{{uploadImage == true}}"></image>
+            <image src="/resource/img/icon/upload.png" class="uploadIcon" wx:if="{{uploadItineraryCode == false}}" bindtap="uploadItineraryCode"></image>
+            <image src="{{uploadItineraryCodeSrc}}" class="uploadImage" wx:if="{{uploadItineraryCode == true}}"></image>
         </view>
-        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadImageReset"></image>
+        <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="uploadItineraryCodeReset"></image>
     </view>
 
     

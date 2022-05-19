@@ -7,5 +7,5 @@
         <view style="font-size: 60rpx; margin-bottom: 30rpx;">当前日期：{{date}}</view>
     </view>
 
-    <button type="primary" bindtap="goToLocationTest">位置测试页面</button>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">TEST</button>
 </view>

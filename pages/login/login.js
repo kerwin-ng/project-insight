@@ -8,6 +8,34 @@ Page({
 
     },
 
+    login: function() {
+        wx.login({
+          timeout: 10000, //单位：ms
+
+          success: (res) => {
+            console.log(res);
+            if (res.code) {
+                wx.request({
+                  url: 'http://127.0.0.1:5000/login',
+                  data: {
+                      code: res.code
+                  },
+                  
+                })
+            } else {
+                console.log('fail');
+                console.log(res);
+            }
+
+          },
+
+          fail: (res) => {
+              console.log('fail');
+              console.log(res)
+          }
+        })
+    },
+
     loginAdmin: function(e) {
         wx.navigateTo({
           url: '/pages/adminMain/adminMain',

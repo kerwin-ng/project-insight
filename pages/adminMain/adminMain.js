@@ -8,6 +8,10 @@ Page({
 
     },
 
+    getPhoneNumber: function(e) {
+      console.log(e)  
+    },
+
     goToLocationTest: function() {
         wx.navigateTo({
           url: '/pages/test/locationTest/locationTest',

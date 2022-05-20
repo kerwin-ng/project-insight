@@ -28,6 +28,8 @@ Page({
                               var platUserInfoMap = {}
                               platUserInfoMap["encryptedData"] = userResult.encryptedData;
                               platUserInfoMap["iv"] = userResult.iv;
+                              console.log('platUserInfoMap:');
+                              console.log(platUserInfoMap);
                               wx.request({
                                 url: 'http://127.0.0.1:5000/wxlogin',
                                 data: {
@@ -43,8 +45,12 @@ Page({
                                     console.log(res)
                                     wx.setStorageSync("userinfo", res.userinfo)
                                 },
-                                fail: function(err) {},
-                                complete: function() {}
+                                fail: function(err) {
+
+                                },
+                                complete: function() {
+
+                                }
                               })
                           }
                         })
@@ -57,28 +63,25 @@ Page({
 
     login: function() {
         wx.login({
-          timeout: 10000, //单位：ms
-          success: (res) => {
-            var that = this;
-            console.log(res);
-            if (res.code) {
-                wx.request({
-                  url: 'http://127.0.0.1:5000/wxlogin',
-                  data: {
-                      code: res.code
-                  },
-                  
-                })
-            } else {
-                console.log('fail');
-                console.log(res);
-            }
+          timeout: 10000,
 
+          success: (res) => {
+            console.log(res);
+
+            wx.request({
+              url: 'http://127.0.0.1:5000/wxlogin',
+
+              data: {
+                userCode: res.code
+              },
+
+              method: 'POST',
+              dataType: 'json',
+            })
           },
 
           fail: (res) => {
-              console.log('fail');
-              console.log(res)
+              console.log(res);
           }
         })
     },

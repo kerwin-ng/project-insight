@@ -8,15 +8,62 @@ Page({
 
     },
 
+    loginDemo: function() {
+        wx.login({
+          timeout: 10000,
+
+          success: resp => {
+              console.log(resp);
+              var that = this;
+
+              wx.getSetting({
+                withSubscriptions: true,
+
+                success: res => {
+                    if (res.authSetting['scope.userInfo']) {
+                        wx.getUserInfo({
+                        //   lang: lang,
+
+                          success: userResult => {
+                              var platUserInfoMap = {}
+                              platUserInfoMap["encryptedData"] = userResult.encryptedData;
+                              platUserInfoMap["iv"] = userResult.iv;
+                              wx.request({
+                                url: 'http://127.0.0.1:5000/wxlogin',
+                                data: {
+                                    platCode: resp.code,
+                                    platUserInfoMap: platUserInfoMap,
+                                },
+                                header: {
+                                    "Content-Type": "application/json"
+                                },
+                                method: 'POST',
+                                dataType: 'json',
+                                success: function(res) {
+                                    console.log(res)
+                                    wx.setStorageSync("userinfo", res.userinfo)
+                                },
+                                fail: function(err) {},
+                                complete: function() {}
+                              })
+                          }
+                        })
+                    }
+                }
+              })
+          }
+        })
+    },
+
     login: function() {
         wx.login({
           timeout: 10000, //单位：ms
-
           success: (res) => {
+            var that = this;
             console.log(res);
             if (res.code) {
                 wx.request({
-                  url: 'http://127.0.0.1:5000/login',
+                  url: 'http://127.0.0.1:5000/wxlogin',
                   data: {
                       code: res.code
                   },

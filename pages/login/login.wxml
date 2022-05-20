@@ -5,5 +5,5 @@
     <view class="loginText">通过手机号登录</view>
 </view>
 
-<button bindtap="login">登录</button>
+<button bindtap="loginDemo">登录</button>
 <button bindtap="loginAdmin" style="margin-top: 20rpx;" type="primary">管理员</button>

@@ -6,4 +6,5 @@
 </view>
 
 <button bindtap="login">登录</button>
+<button bindtap="loginSuccess">跳过</button>
 <button bindtap="loginAdmin" style="margin-top: 20rpx;" type="primary">管理员</button>

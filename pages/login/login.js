@@ -5,63 +5,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-
-    },
-
-    loginDemo: function() {
-        wx.login({
-          timeout: 10000,
-
-          success: resp => {
-              console.log(resp);
-              var that = this;
-
-              wx.getSetting({
-                withSubscriptions: true,
-
-                success: res => {
-                    if (res.authSetting['scope.userInfo']) {
-                        wx.getUserInfo({
-                        //   lang: lang,
-
-                          success: userResult => {
-                              var platUserInfoMap = {}
-                              platUserInfoMap["encryptedData"] = userResult.encryptedData;
-                              platUserInfoMap["iv"] = userResult.iv;
-                              console.log('platUserInfoMap:');
-                              console.log(platUserInfoMap);
-                              wx.request({
-                                url: 'http://127.0.0.1:5000/wxlogin',
-                                data: {
-                                    platCode: resp.code,
-                                    platUserInfoMap: platUserInfoMap,
-                                },
-                                header: {
-                                    "Content-Type": "application/json"
-                                },
-                                method: 'POST',
-                                dataType: 'json',
-                                success: function(res) {
-                                    console.log(res)
-                                    wx.setStorageSync("userinfo", res.userinfo)
-                                },
-                                fail: function(err) {
-
-                                },
-                                complete: function() {
-
-                                }
-                              })
-                          }
-                        })
-                    }
-                }
-              })
-          }
-        })
+        code: '1123'
     },
 
     login: function() {
+        var that = this;
         wx.login({
           timeout: 10000,
 
@@ -70,19 +18,41 @@ Page({
 
             wx.request({
               url: 'http://127.0.0.1:5000/wxlogin',
-
+              method: 'POST',
+              dataType: 'json',
               data: {
                 userCode: res.code
               },
+              success: (e) => {
+                  console.log('success log')
+                  console.log(e)
 
-              method: 'POST',
-              dataType: 'json',
+                  if (e.data.login == 0 & 1 ){
+                      wx.switchTab({
+                        url: '/pages/main/main',
+                      })
+                  } else {
+                      console.log('fail,statusCode:');
+                      console.log(e.statusCode)
+                      var errCode = 'HTTP错误代码：' + e.statusCode
+                      wx.showModal({
+                        title: '登录失败',
+                        content: errCode,
+                        showCancel: false,
+                      })
+                  }
+              },
+
+              fail: (e) => {
+                  console.log('request fail')
+                  wx.showModal({
+                    title: '登录失败',
+                    content: '请检查网络',
+                    showCancel: false,
+                  })
+              }
             })
           },
-
-          fail: (res) => {
-              console.log(res);
-          }
         })
     },
 

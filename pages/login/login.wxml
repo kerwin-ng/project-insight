@@ -5,6 +5,7 @@
     <view class="loginText">通过手机号登录</view>
 </view>
 
-<button bindtap="login">登录</button>
-<button bindtap="loginSuccess">跳过</button>
-<button bindtap="loginAdmin" style="margin-top: 20rpx;" type="primary">管理员</button>
+<button bindtap="login" type="primary" style="margin-top: 50rpx;">登录</button>
+<!-- <button bindtap="loginAdmin" style="margin-top: 20rpx;" type="primary">管理员</button> -->
+
+<button bindtap="loginSuccess" type="warn" style="margin-top: 400rpx;">调试模式</button>

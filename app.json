@@ -10,7 +10,8 @@
         "pages/about/about",
         "pages/adminMain/adminMain",
         "pages/adminReportList/adminReportList",
-        "pages/test/locationTest/locationTest"
+        "pages/test/locationTest/locationTest",
+        "pages/test/developmentMode/developmentMode"
     ],
     "window": {
         "backgroundTextStyle": "light",

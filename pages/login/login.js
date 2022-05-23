@@ -9,8 +9,8 @@ Page({
     },
 
     login: function() {
-        var that = this;
         const app = getApp();
+        
         wx.login({
           timeout: 10000,
 
@@ -30,11 +30,20 @@ Page({
 
                   if (e.data.login == 0 & 1 ){
 
-                      app.globalData.uuid = e.data.uuid
-                      console.log(app.globalData.uuid)
-                      wx.switchTab({
-                        url: '/pages/main/main',
-                      })
+                      if (e.data.uuid) {
+                        app.globalData.uuid = e.data.uuid
+                        console.log(app.globalData.uuid)
+                        wx.switchTab({
+                            url: '/pages/main/main',
+                        })
+                      } else {
+                          wx.showModal({
+                            title: '登录失败',
+                            content: 'uuid获取失败',
+                            showCancel: false
+                          })
+                      }
+                      
                   } else {
                       console.log('fail,statusCode:');
                       console.log(e.statusCode)

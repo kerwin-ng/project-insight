@@ -15,4 +15,6 @@
         <view style="font-size: 50rpx;">广东省中高风险地区：</view>
         <button bindtap="goToYueshengshi">跳转</button>
     </view> -->
+
+    <view>{{uuid}}</view>
 </view>

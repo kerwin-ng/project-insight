@@ -1,6 +1,8 @@
 <!--pages/report/report.wxml-->
 <view style="font-size: 100rpx; padding: 20rpx;">每日报告</view>
 <view style="font-size: 50rpx; padding: 20rpx;">当前日期:{{date}}</view>
+<button bindtap="testGlobalData">test</button>
+<view>{{uuid}}</view>
 <form action="" bindsubmit="reportSubmit" bindreset="reportReset">
 
     <view class="reportView">

@@ -8,6 +8,9 @@ var qqmapsdk = new QQMapWX({
     key: 'XGNBZ-GRPWS-NW7O6-6O6LX-OWVZT-X2BKG' // 必填
 });
 
+const app = getApp();
+
+
 Page({
 
     /**
@@ -20,6 +23,11 @@ Page({
         uploadItineraryCode: false,
         uploadHealthCodeSrc: '',
         uploadItineraryCodeSrc: '',
+        uuid: '',
+    },
+
+    testGlobalData: function(e) {
+
     },
 
     uploadItineraryCode: function() {

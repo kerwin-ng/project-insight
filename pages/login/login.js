@@ -5,11 +5,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        code: '1123'
+        code: ''
     },
 
     login: function() {
         var that = this;
+        const app = getApp();
         wx.login({
           timeout: 10000,
 
@@ -24,10 +25,13 @@ Page({
                 userCode: res.code
               },
               success: (e) => {
-                  console.log('success log')
+                  console.log('success log e')
                   console.log(e)
 
                   if (e.data.login == 0 & 1 ){
+
+                      app.globalData.uuid = e.data.uuid
+                      console.log(app.globalData.uuid)
                       wx.switchTab({
                         url: '/pages/main/main',
                       })

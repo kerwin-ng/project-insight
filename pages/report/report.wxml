@@ -2,8 +2,6 @@
 <view style="font-size: 100rpx; padding: 20rpx;">每日报告</view>
 <view style="font-size: 50rpx; padding: 20rpx;">当前日期:{{date}}</view>
 
-<button bindtap="getServerTime">TIME</button>
-
 <form action="" bindsubmit="reportSubmit" bindreset="reportReset">
 
     <view class="reportView">
@@ -37,8 +35,8 @@
     <view class="reportViewLocation">
         <text class="reportViewText">14天内是否到达过中高风险所在市：</text>
         <radio-group name="riskLocation" style="margin-top: 20rpx;">
-            <radio value="riskLocationTrue">是</radio>
-            <radio value="riskLocationFalse"  style="margin-left: 20rpx;">否</radio>
+            <radio value="True">是</radio>
+            <radio value="False"  style="margin-left: 20rpx;">否</radio>
         </radio-group>
     </view>
 
@@ -71,7 +69,7 @@
 
     
     <view style="display: flex; margin-top: 20rpx;">
-        <button type="primary" form-type="reportSubmit">提交</button>
+        <button type="primary" form-type="submit" bindtap="reportSubmit">提交</button>
         <button type="warn" form-type="reset">重置</button>
     </view>
 

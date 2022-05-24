@@ -158,6 +158,20 @@ Page({
     reportSubmit: function(res) {
         var that = this;
         console.log(res);
+        wx.request({
+          url: 'http://127.0.0.1:5000/user/report',
+          method: 'POST',
+          dataType: 'json',
+          data: {
+              name: res.detail.value.name,
+              class: res.detail.value.class,
+              no: res.detail.value.no,
+              phone: res.detail.value.phone,
+              temperature: res.detail.value.temperature,
+              risk_location: res.detail.value.riskLocation,
+              address: res.detail.value.address
+          }
+        })
     },
 
     /**
@@ -173,6 +187,7 @@ Page({
     onReady() {
         // 获取经纬度转换成地址传递到 address
         this.getAddress();
+        this.getServerTime();
     },
 
     /**

@@ -60,7 +60,7 @@ Page({
                   console.log('request fail')
                   wx.showModal({
                     title: '登录失败',
-                    content: '请检查网络',
+                    content: '无法请求服务器，请检查网络',
                     showCancel: false,
                   })
               }

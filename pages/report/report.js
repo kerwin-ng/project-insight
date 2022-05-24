@@ -17,7 +17,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        date: '2022-05-06',
+        date: '',
         reportAddress: '',
         uploadHealthCode: false,
         uploadItineraryCode: false,
@@ -26,8 +26,25 @@ Page({
         uuid: '',
     },
 
-    testGlobalData: function(e) {
+    getServerTime: function(e) {
+        var that = this;
 
+        wx.request({
+          url: 'http://127.0.0.1:5000/time',
+          method: 'POST',
+
+          success: (res) => {
+            that.setData({
+                date: res.data
+            })
+          },
+
+          fail: (res) => {
+            that.setData({
+                date: '获取服务器时间失败'
+            })
+          }
+        })
     },
 
     uploadItineraryCode: function() {

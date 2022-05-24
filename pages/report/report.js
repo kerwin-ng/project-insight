@@ -1,5 +1,5 @@
 // pages/report/report.js
-
+import WxValidate from '../../resource/js/WxValidate';
 // 引入SDK核心类
 var QQMapWX = require('./qqmap-wx-jssdk.js');
  
@@ -126,12 +126,6 @@ Page({
                     console.log(e)
                 }
             })
-            // this.setData({
-            //     locationLatitude: res.latitude,
-            //     locationLongitude: res.longitude
-            // })
-            // console.log(this.data.locationLatitude)
-            // console.log(this.data.locationLongitude)
           },
 
           fail: (res) => {
@@ -139,55 +133,54 @@ Page({
                 console.log(res)
           }
         })
-
-        // qqmapsdk.reverseGeocoder({
-        //     location: {
-        //         latitude: this.data.locationLatitude,
-        //         longitude: this.data.locationLongitude,
-        //     },
-
-        //     success: function(res) {
-        //         console.log(res);
-        //     },
-        //     fail: function(res) {
-        //         console.log(res);
-        //     }
-        // })
     },
 
     reportSubmit: function(res) {
         var that = this;
         console.log(res);
-        wx.request({
-          url: 'http://127.0.0.1:5000/user/report',
-          method: 'POST',
-          dataType: 'json',
-          data: {
-              name: res.detail.value.name,
-              class: res.detail.value.class,
-              no: res.detail.value.no,
-              phone: res.detail.value.phone,
-              temperature: res.detail.value.temperature,
-              risk_location: res.detail.value.riskLocation,
-              address: res.detail.value.address
-          }
-        })
+        if (that.uploadHealthCodeSrc) {
+            wx.request({
+                url: 'http://127.0.0.1:5000/user/report',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    name: res.detail.value.name,
+                    class: res.detail.value.class,
+                    no: res.detail.value.no,
+                    phone: res.detail.value.phone,
+                    temperature: res.detail.value.temperature,
+                    risk_location: res.detail.value.riskLocation,
+                    address: res.detail.value.address
+                },
+
+                success: (e) => {
+                    console.log('success log:');
+                    console.log(e);
+                    wx.showModal({
+                      title: '提交成功',
+                      showCancel: false,
+                    })
+                }
+              })
+        } else {
+
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        // 获取经纬度转换成地址传递到 address
+        this.getAddress();
+        this.getServerTime();
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-        // 获取经纬度转换成地址传递到 address
-        this.getAddress();
-        this.getServerTime();
+        
     },
 
     /**

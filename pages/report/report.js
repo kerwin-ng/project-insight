@@ -1,7 +1,7 @@
 // pages/report/report.js
-import WxValidate from '../../resource/js/WxValidate';
+import WxValidate from "../../resource/js/WxValidate.js";
 // 引入SDK核心类
-var QQMapWX = require('./qqmap-wx-jssdk.js');
+var QQMapWX = require('../../resource/js/qqmap-wx-jssdk.js');
  
 // 实例化API核心类
 var qqmapsdk = new QQMapWX({
@@ -17,6 +17,13 @@ Page({
      * 页面的初始数据
      */
     data: {
+        form: {
+            name: '',
+            class: '',
+            no: '',
+            phone: '',
+            address: '',
+        },
         date: '',
         reportAddress: '',
         uploadHealthCode: false,
@@ -24,6 +31,62 @@ Page({
         uploadHealthCodeSrc: '',
         uploadItineraryCodeSrc: '',
         uuid: '',
+    },
+
+    initValidate: function() {
+        let rules = {
+            name: {
+                required: true,
+                maxlength: 10
+            },
+
+            class: {
+                required: true,
+                maxlength: 10,
+            },
+
+            no: {
+                required: true,
+                maxlength: 2,
+            },
+
+            phone: {
+                required: true,
+                tel: true,
+            },
+
+            address: {
+                required: true,
+            }
+        }
+
+        let messages = {
+            name: {
+                required: '请输入姓名',
+                maxlength: '名字不能超出10个字符',
+            },
+
+            class: {
+                required: '请输入班级',
+                maxlength: '班级不能超出10个字符',
+            },
+
+            no: {
+                required: '请输入学号',
+                maxlength: '学号不能超出2个字符'
+            },
+
+            phone: {
+                required: '请输入手机号',
+                tel: '手机号必须为11位',
+            },
+
+            address: {
+                required: '未获取到地址'
+            }
+        }
+
+        this.WxValidate = new WxValidate(rules, messages);
     },
 
     getServerTime: function(e) {
@@ -119,7 +182,7 @@ Page({
                 success: (e) => {
                     console.log(e)
                     that.setData({
-                        reportAddress: e.result.address
+                        ['form.address']: e.result.address
                     })
                 },
                 fail: (e) => {
@@ -135,7 +198,19 @@ Page({
         })
     },
 
-    reportSubmit: function(res) {
+    reportSubmit: function(e) {
+        const params = e.detail.value;
+        console.log(params);
+
+        if (!this.WxValidate.checkForm(params)) {
+            let error = this.WxValidate.errorList[0];
+            this.showModal(error);
+            return false;
+        }
+
+    },
+
+    reportSubmitDemo: function(res) {
         var that = this;
         console.log(res);
         if (that.uploadHealthCodeSrc) {
@@ -167,13 +242,21 @@ Page({
         }
     },
 
+    
+  showModal(error) {
+    wx.showModal({
+      content: error.msg,
+      showCancel: false,
+    })
+  },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        // 获取经纬度转换成地址传递到 address
-        this.getAddress();
-        this.getServerTime();
+        this.getAddress(); // 获取经纬度转换成地址传递到 address
+        this.getServerTime(); // 获取服务器时间
+        this.initValidate(); // 表单校检
     },
 
     /**

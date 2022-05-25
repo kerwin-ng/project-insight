@@ -6,29 +6,29 @@
 
     <view class="reportView">
         <text class="reportViewText">姓名:</text>
-        <input type="text" name="name" class="reportInput"/>
+        <input type="text" name="name" class="reportInput" value="{{form.name}}"/>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">班级:</text>
-        <input type="text" name="class" class="reportInput"/>
+        <input type="text" name="class" class="reportInput" value="{{form.class}}"/>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">学号:</text>
-        <input type="text" name="no" class="reportInput"/>
+        <input type="text" name="no" class="reportInput" value="{{form.no}}"/>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">手机号：</text>
-        <input type="number" maxlength="11" name="phone" class="reportInputPhone"/>
+        <input type="number" maxlength="11" name="phone" class="reportInputPhone" value="{{form.phone}}"/>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">体温：</text>
-        <radio-group name="temperature">
-            <radio value="temperatureTrue" style="margin-left: 10rpx">大于37度</radio>
-            <radio value="temperatureFalse" style="margin-left: 20rpx">小于37度</radio>
+        <radio-group name="temperature" value="False">
+            <radio value="True" style="margin-left: 10rpx">大于37度</radio>
+            <radio value="False" style="margin-left: 20rpx" checked="true">小于37度</radio>
         </radio-group>
     </view>
 
@@ -36,14 +36,14 @@
         <text class="reportViewText">14天内是否到达过中高风险所在市：</text>
         <radio-group name="riskLocation" style="margin-top: 20rpx;">
             <radio value="True">是</radio>
-            <radio value="False"  style="margin-left: 20rpx;">否</radio>
+            <radio value="False"  style="margin-left: 20rpx;" checked="true">否</radio>
         </radio-group>
     </view>
 
     <view class="reportView">
         <text class="reportViewText">所处位置：</text>
         <!-- <view class="location" bindtap="getAddress">{{reportAddress}}</view> -->
-        <input type="text" class="reportInputAddress" name="address" value="{{reportAddress}}" disabled="true"/>
+        <input type="text" class="reportInputAddress" name="address" value="{{form.address}}" disabled="true"/>
         <image src="/resource/img/icon/refresh.png" class="refreashIcon" bindtap="getAddress"></image>
     </view>
 

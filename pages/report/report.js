@@ -89,11 +89,12 @@ Page({
         this.WxValidate = new WxValidate(rules, messages);
     },
 
+    // 获取服务器时间
     getServerTime: function(e) {
         var that = this;
 
         wx.request({
-          url: 'http://127.0.0.1:5000/time',
+          url: 'http://127.0.0.1:19999/time',
           method: 'POST',
 
           success: (res) => {
@@ -110,6 +111,7 @@ Page({
         })
     },
 
+    // 上传行程卡截图
     uploadItineraryCode: function() {
         var that = this;
         wx.chooseImage({
@@ -130,6 +132,7 @@ Page({
         })
     },
 
+    // 上传健康码截图
     uploadHealthCode: function() {
         var that = this;
         wx.chooseImage({
@@ -150,6 +153,7 @@ Page({
         })
     },
 
+    // 上传图片重置
     uploadItineraryCodeReset: function() {
         this.setData({
             uploadItineraryCode: false,
@@ -164,6 +168,7 @@ Page({
         })
     },
 
+    // 获取当前地址
     getAddress: function(e) {
         var that = this;
 
@@ -198,14 +203,39 @@ Page({
         })
     },
 
+    // 提交报告
     reportSubmit: function(e) {
         const params = e.detail.value;
         console.log(params);
 
+        // 表单校检
         if (!this.WxValidate.checkForm(params)) {
             let error = this.WxValidate.errorList[0];
             this.showModal(error);
             return false;
+        }
+
+        // 上传健康码截图
+        if (this.data.uploadHealthCodeSrc) {
+            console.log('uploadHealthCodeSrc True');
+            const filePath = this.data.uploadHealthCodeSrc[0];
+            console.log(app.globalData.uuid)
+            wx.uploadFile({
+              filePath: filePath,
+              name: 'HealthCode',
+              url: 'http://127.0.0.1:19999/user/upload/health_code',
+              method: 'POST',
+              formData: {
+                uuid: app.globalData.uuid
+              },
+
+              success: (res) => {
+                  console.log('success');
+                  console.log(res)
+              }
+            })
+        } else {
+            console.log('upload fail')
         }
 
     },
@@ -215,7 +245,7 @@ Page({
         console.log(res);
         if (that.uploadHealthCodeSrc) {
             wx.request({
-                url: 'http://127.0.0.1:5000/user/report',
+                url: 'http://127.0.0.1:19999/user/report',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -242,13 +272,13 @@ Page({
         }
     },
 
-    
-  showModal(error) {
-    wx.showModal({
-      content: error.msg,
-      showCancel: false,
-    })
-  },
+    // 弹窗
+    showModal(error) {
+        wx.showModal({
+        content: error.msg,
+        showCancel: false,
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -257,6 +287,7 @@ Page({
         this.getAddress(); // 获取经纬度转换成地址传递到 address
         this.getServerTime(); // 获取服务器时间
         this.initValidate(); // 表单校检
+        var app = getApp(); // 初始化全局变量
     },
 
     /**

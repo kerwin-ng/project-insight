@@ -18,7 +18,7 @@ Page({
             console.log(res);
 
             wx.request({
-              url: 'http://127.0.0.1:5000/wxlogin',
+              url: 'http://127.0.0.1:19999/wxlogin',
               method: 'POST',
               dataType: 'json',
               data: {

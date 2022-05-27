@@ -1,2 +1,2 @@
-# 使用的公开或开源项目
-图标：www.iconfont.cn @xmx蒜头xmx @华泰IT @泊烟
+疫情每日健康报告微信小程序，正在施工中。
+后端项目地址：https://github.com/kerwin-ng/insight_python

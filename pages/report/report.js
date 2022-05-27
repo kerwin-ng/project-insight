@@ -205,23 +205,24 @@ Page({
 
     // 提交报告
     reportSubmit: function(e) {
+        var that = this;
         const params = e.detail.value;
         console.log(params);
 
         // 表单校检
         if (!this.WxValidate.checkForm(params)) {
             let error = this.WxValidate.errorList[0];
-            this.showModal(error);
+            that.showModal(error);
             return false;
         }
 
         // 上传健康码截图
         if (this.data.uploadHealthCodeSrc) {
             console.log('uploadHealthCodeSrc True');
-            const filePath = this.data.uploadHealthCodeSrc[0];
+            const healthCodeFilePath = this.data.uploadHealthCodeSrc[0];
             console.log(app.globalData.uuid)
             wx.uploadFile({
-              filePath: filePath,
+              filePath: healthCodeFilePath,
               name: 'HealthCode',
               url: 'http://127.0.0.1:19999/user/upload/health_code',
               method: 'POST',
@@ -232,13 +233,68 @@ Page({
               success: (res) => {
                   console.log('wx.uploadFile success');
                   console.log(res)
-                //   var healthCodeName = res.data.status
-                //   console.log(healthCodeName)
+                  var healthCodeName = res.data
+                  console.log(healthCodeName)
+              },
+
+              fail: (res) => {
+                wx.showModal({
+                    title: '提交失败',
+                    content: '请稍后再试',
+                    showCancel: false,
+                  })
+                  return false;
               }
             })
         } else {
             console.log('upload fail')
+            wx.showModal({
+              title: '提交失败',
+              content: '请先选择健康码图片',
+              showCancel: false,
+            })
+            return false;
         }
+
+        // 上传行程卡截图
+        if (this.data.uploadItineraryCodeSrc) {
+            console.log('uploadItineraryCodeSrc True')
+            const itineraryCodeFilePath = this.data.uploadItineraryCodeSrc[0];
+            wx.uploadFile({
+              filePath: itineraryCodeFilePath,
+              name: 'ItineraryCode',
+              url: 'http://127.0.0.1:19999/user/upload/itinerary_code',
+              method: 'POST',
+              formData: {
+                  uuid: app.globalData.uuid
+              },
+
+              success: (res) => {
+                  console.log('wx.uploadFile success');
+                  console.log(res)
+                  var itineraryCodeName = res.data
+                  console.log(itineraryCodeName)
+              },
+
+              fail: (res) => {
+                wx.showModal({
+                    title: '提交失败',
+                    content: '请稍后再试',
+                    showCancel: false,
+                  })
+                  return false;
+              }
+            })
+        } else {
+            console.log('upload fail')
+            wx.showModal({
+              title: '提交失败',
+              content: '请先选择行程卡图片',
+              showCancel: false,
+            })
+            return false;
+        }
+        
 
     },
 

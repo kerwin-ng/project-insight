@@ -230,8 +230,10 @@ Page({
               },
 
               success: (res) => {
-                  console.log('success');
+                  console.log('wx.uploadFile success');
                   console.log(res)
+                //   var healthCodeName = res.data.status
+                //   console.log(healthCodeName)
               }
             })
         } else {

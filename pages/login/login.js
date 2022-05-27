@@ -28,7 +28,7 @@ Page({
                   console.log('success log e')
                   console.log(e)
 
-                  if (e.data.login == 0 & 1 ){
+                  if (e.data.status == 1 ){
 
                       if (e.data.uuid) {
                         app.globalData.uuid = e.data.uuid

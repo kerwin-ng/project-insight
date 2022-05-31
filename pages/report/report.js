@@ -205,6 +205,8 @@ Page({
 
     // 提交报告
     reportSubmit: function(e) {
+        var healthCodeName = '';
+        var itineraryCodeName = '';
         var that = this;
         const params = e.detail.value;
         console.log(params);
@@ -233,7 +235,7 @@ Page({
               success: (res) => {
                   console.log('wx.uploadFile success');
                   console.log(res)
-                  var healthCodeName = res.data
+                  healthCodeName = res.data
                   console.log(healthCodeName)
               },
 
@@ -272,7 +274,7 @@ Page({
               success: (res) => {
                   console.log('wx.uploadFile success');
                   console.log(res)
-                  var itineraryCodeName = res.data
+                  itineraryCodeName = res.data
                   console.log(itineraryCodeName)
               },
 
@@ -294,7 +296,38 @@ Page({
             })
             return false;
         }
+
+        console.log('submit log')
+        console.log(e);
         
+        wx.request({
+          url: 'http://127.0.0.1:19999/user/report',
+          method: 'POST',
+          dataType: 'json',
+          data: {
+              name: e.detail.value.name,
+              the_class: e.detail.value.class,
+              no: e.detail.value.no,
+              phone: e.detail.value.phone,
+              risk_location: e.detail.value.riskLocation,
+              address: e.detail.value.address,
+              temperature: e.detail.value.temperature,
+              health_code: healthCodeName,
+              itinerary_code: itineraryCodeName
+          },
+
+          success: (res) => {
+              console.log('报告提交成功,下面是data数据');
+              console.log(healthCodeName);
+              console.log(itineraryCodeName);
+          },
+          fail: (res) => {
+              console.log('报告提交失败');
+              console.log(res);
+          }
+        })
+        
+
 
     },
 

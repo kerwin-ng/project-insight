@@ -218,6 +218,12 @@ Page({
             return false;
         }
 
+        // 显示 loading 页面
+        wx.showLoading({
+            title: '正在上传...',
+            mask: true
+          })
+
         // 上传健康码截图
         if (this.data.uploadHealthCodeSrc) {
             console.log('uploadHealthCodeSrc True');
@@ -300,67 +306,37 @@ Page({
         console.log('submit log')
         console.log(e);
         
-        wx.request({
-          url: 'http://127.0.0.1:19999/user/report',
-          method: 'POST',
-          dataType: 'json',
-          data: {
-              name: e.detail.value.name,
-              the_class: e.detail.value.class,
-              no: e.detail.value.no,
-              phone: e.detail.value.phone,
-              risk_location: e.detail.value.riskLocation,
-              address: e.detail.value.address,
-              temperature: e.detail.value.temperature,
-              health_code: healthCodeName,
-              itinerary_code: itineraryCodeName
-          },
-
-          success: (res) => {
-              console.log('报告提交成功,下面是data数据');
-              console.log(healthCodeName);
-              console.log(itineraryCodeName);
-          },
-          fail: (res) => {
-              console.log('报告提交失败');
-              console.log(res);
-          }
-        })
-        
-
-
-    },
-
-    reportSubmitDemo: function(res) {
-        var that = this;
-        console.log(res);
-        if (that.uploadHealthCodeSrc) {
+        // 等待上传操作 3000ms 后再进行 wx.request操作
+        setTimeout(function (){
+            wx.hideLoading()
             wx.request({
                 url: 'http://127.0.0.1:19999/user/report',
                 method: 'POST',
                 dataType: 'json',
                 data: {
-                    name: res.detail.value.name,
-                    class: res.detail.value.class,
-                    no: res.detail.value.no,
-                    phone: res.detail.value.phone,
-                    temperature: res.detail.value.temperature,
-                    risk_location: res.detail.value.riskLocation,
-                    address: res.detail.value.address
+                    name: e.detail.value.name,
+                    the_class: e.detail.value.class,
+                    no: e.detail.value.no,
+                    phone: e.detail.value.phone,
+                    risk_location: e.detail.value.riskLocation,
+                    address: e.detail.value.address,
+                    temperature: e.detail.value.temperature,
+                    health_code: healthCodeName,
+                    itinerary_code: itineraryCodeName
                 },
-
-                success: (e) => {
-                    console.log('success log:');
-                    console.log(e);
-                    wx.showModal({
-                      title: '提交成功',
-                      showCancel: false,
-                    })
+      
+                success: (res) => {
+                    console.log('报告提交成功,下面是data数据');
+                    console.log(healthCodeName);
+                    console.log(itineraryCodeName);
+                },
+                fail: (res) => {
+                    console.log('报告提交失败');
+                    console.log(res);
                 }
               })
-        } else {
+        },3000)
 
-        }
     },
 
     // 弹窗
